@@ -27,11 +27,18 @@ public class Player {
         this.cards.add(card);
     }
 
-    public void calcTotalCardValue(Card card){
+    public void calcTotalCardValue(Card card) {
         this.totalValueOfCards += card.getValue().getValue();
     }
 
     public void setPlayerState() {
+        if (this.totalValueOfCards < 17) {
+            this.setPlayerState("Hit");
+        } else if (this.totalValueOfCards >= 21) {
+            this.setPlayerState("Bust");
+        } else {
+            this.setPlayerState("Stick");
+        }
 
     }
 }

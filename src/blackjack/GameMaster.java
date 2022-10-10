@@ -21,6 +21,7 @@ public class GameMaster {
         this.card = card;
         this.numberOfPlayers = numberOfPlayers;
         this.round = 1;
+        this.players = players;
     }
 
     public GameMaster(Stack<Card> cardDeck, Card card) {
@@ -28,6 +29,7 @@ public class GameMaster {
         this.card = card;
         this.numberOfPlayers = 3;
         this.round = 1;
+        this.players = players;
     }
 
     public Stack<Card> getCardDeck() {
