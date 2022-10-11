@@ -22,9 +22,9 @@ public class Main {
 
 
 
-//        GameMaster gameMaster = new GameMaster(players, deck);
-//        BlackjackGame blackjackGame = new BlackjackGame(gameMaster,deck);
-//        blackjackGame.startNewGame();
+        GameMaster gameMaster = new GameMaster(players, deck);
+        BlackjackGame blackjackGame = new BlackjackGame(gameMaster,deck);
+        blackjackGame.startNewGame();
 
 
     }

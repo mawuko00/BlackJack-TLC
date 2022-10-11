@@ -51,6 +51,7 @@ public class Player {
 
     public void addCard(Card card) {
         this.cards.add(card);
+        this.calcCardValue(card);
     }
 
     public void calcCardValue(Card card) {

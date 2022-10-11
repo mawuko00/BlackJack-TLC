@@ -59,10 +59,10 @@ public class GameMaster {
             if (this.round == 1) {
                 p.addCard(this.deck.getCardDeck().pop());
                 p.addCard(this.deck.getCardDeck().pop());
-                System.out.println("Player " + p.getID() + p.getTotalValueOfCards());
+                System.out.println("Player " + p.getID()+ " " + p.getTotalValueOfCards());
             } else {
                 p.addCard(this.deck.getCardDeck().pop());
-                System.out.println("Player " + p.getID() + p.getTotalValueOfCards());
+                System.out.println("Player " + p.getID()+ " " + p.getTotalValueOfCards());
             }
         }
         ++this.round;
