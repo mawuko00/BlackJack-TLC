@@ -22,7 +22,7 @@ public class GameMasterTest {
     @Test
     public void numberOfCardsInHandTest() {
         ArrayList<Player> players = new ArrayList<>();
-        Stack<Card>cards = new Stack<>();
+        Stack<Card> cards = new Stack<>();
         Deck deck = new Deck(cards);
         deck.createDeck();
         GameMaster gameMaster = new GameMaster(players, deck);
@@ -30,80 +30,102 @@ public class GameMasterTest {
 
 
         for (Player player : players) {
-            Assertions.assertEquals(2,player.getCards().size() );
+            Assertions.assertEquals(2, player.getCards().size());
 
         }
         gameMaster.dealCard();
         for (Player player : players) {
-            Assertions.assertEquals(3,player.getCards().size() );
+            Assertions.assertEquals(3, player.getCards().size());
 
         }
 
     }
 
     @Test
-    public void numberOfPlayerTest(){
+    public void numberOfPlayerTest() {
         ArrayList<Player> players = new ArrayList<>();
         Deck deck = new Deck();
-        GameMaster gameMaster = new GameMaster(4,deck,players);
+        GameMaster gameMaster = new GameMaster(4, deck, players);
 
-        Assertions.assertEquals(true,gameMaster.checkNumberOfPlayers());
+        Assertions.assertEquals(true, gameMaster.checkNumberOfPlayers());
 
-        GameMaster gameMaster1 = new GameMaster(7,deck,players);
+        GameMaster gameMaster1 = new GameMaster(7, deck, players);
 
-        Assertions.assertEquals(false,gameMaster1.checkNumberOfPlayers());
+        Assertions.assertEquals(false, gameMaster1.checkNumberOfPlayers());
     }
 
     @Test
-    public void playerWithHighCardValueTest(){
-        ArrayList<Card>cards = new ArrayList<>();
+    public void playerWithHighCardValueTest() {
+        ArrayList<Card> cards = new ArrayList<>();
         Player player1 = new Player(cards);
         player1.setTotalValueOfCards(22);
         Player player2 = new Player(cards);
         player2.setTotalValueOfCards(23);
         Player player3 = new Player(cards);
         player3.setTotalValueOfCards(20);
-        ArrayList<Player> players = new ArrayList<>(){
+        ArrayList<Player> players = new ArrayList<>() {
             {
                 add(player1);
                 add(player2);
                 add(player3);
             }
         };
-        GameMaster gameMaster= new GameMaster(players,new Deck());
+        GameMaster gameMaster = new GameMaster(players, new Deck());
 
 
         Player highestValuePlayer = new Player(cards);
-        Assertions.assertEquals(23,gameMaster.highestValuePlayer().getTotalValueOfCards());
+        Assertions.assertEquals(23, gameMaster.highestValuePlayer().getTotalValueOfCards());
 
 
     }
 
     @Test
-    public void determineWinnerTest(){
-        ArrayList<Card>cards = new ArrayList<>();
+    public void determineWinnerTest() {
+        ArrayList<Card> cards = new ArrayList<>();
         Player player1 = new Player(cards);
         player1.setTotalValueOfCards(21);
         Player player2 = new Player(cards);
         player2.setTotalValueOfCards(23);
         Player player3 = new Player(cards);
         player3.setTotalValueOfCards(20);
-        ArrayList<Player> players = new ArrayList<>(){
+        ArrayList<Player> players = new ArrayList<>() {
             {
                 add(player1);
                 add(player2);
                 add(player3);
             }
         };
-        GameMaster gameMaster= new GameMaster(players,new Deck());
+        GameMaster gameMaster = new GameMaster(players, new Deck());
         gameMaster.determineWinner();
 
-        Assertions.assertEquals(21,gameMaster.getWinner().getTotalValueOfCards());
-
-
-
+        Assertions.assertEquals(21, gameMaster.getWinner().getTotalValueOfCards());
 
     }
+
+    @Test
+    public void gameOverTest(){
+        ArrayList<Card> cards = new ArrayList<>();
+        Player player1 = new Player(cards);
+        player1.setTotalValueOfCards(21);
+        Player player2 = new Player(cards);
+        player2.setTotalValueOfCards(23);
+        Player player3 = new Player(cards);
+        player3.setTotalValueOfCards(20);
+        ArrayList<Player> players = new ArrayList<>() {
+            {
+                add(player1);
+                add(player2);
+                add(player3);
+            }
+        };
+        GameMaster gameMaster = new GameMaster(players, new Deck());
+        gameMaster.determineWinner();
+
+        Assertions.assertEquals(true,gameMaster.gameOver());
+
+    }
+
+
 
 //    @Test
 //    void createDeckTest(){

@@ -8,6 +8,7 @@ import card.Deck;
 import player.Player;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Stack;
 
 public class Main {
@@ -15,6 +16,10 @@ public class Main {
         ArrayList<Player> players = new ArrayList<>();
         Stack<Card>cardDeck = new Stack<>();
         Deck deck = new Deck(cardDeck);
+//        Player player = new Player();
+        deck.createDeck();
+        deck.shuffle();
+
 
 
 //        GameMaster gameMaster = new GameMaster(players, deck);

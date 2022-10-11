@@ -16,7 +16,9 @@ public class Player {
     public Player(int id) {
         this.ID = id;
         this.playerState = "Hit";
-        this.cards = cards;
+        this.cards = new ArrayList<>();
+
+
     }
 
 
@@ -27,6 +29,7 @@ public class Player {
 
 
     public Player() {
+        this.cards = new ArrayList<>();
     }
 
 
