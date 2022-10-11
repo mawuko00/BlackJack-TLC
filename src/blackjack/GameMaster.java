@@ -91,17 +91,16 @@ public class GameMaster {
     }
 
     public void determineWinner() {
-        int maxCardValue = 0;
         int count = 0;
         for (Player player : players) {
             if (player.getTotalValueOfCards() == 21) {
                 this.winner = player;
-            } else if (player.getPlayerState().equals("Stick")) {
+            } else if (player.getPlayerState() == "Stick") {
                 ++count;
                 if (count == this.numberOfPlayers) {
                     this.winner = highestValuePlayer();
                 }
-            } else if (player.getPlayerState().equals("Bust")) {
+            } else if (player.getPlayerState() == "Bust") {
                 this.players.remove(player);
                 if (players.size() == 1) {
                     this.winner = players.get(0);
@@ -115,6 +114,10 @@ public class GameMaster {
 
     }
 
+    public Player getWinner() {
+        return winner;
+    }
+
     public boolean gameOver() {
         if (this.winner != null) {
             System.out.println("The Winner is Player " + this.winner.getID());
@@ -122,5 +125,6 @@ public class GameMaster {
         }
         return false;
     }
+
 
 }

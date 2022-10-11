@@ -79,6 +79,32 @@ public class GameMasterTest {
 
     }
 
+    @Test
+    public void determineWinnerTest(){
+        ArrayList<Card>cards = new ArrayList<>();
+        Player player1 = new Player(cards);
+        player1.setTotalValueOfCards(21);
+        Player player2 = new Player(cards);
+        player2.setTotalValueOfCards(23);
+        Player player3 = new Player(cards);
+        player3.setTotalValueOfCards(20);
+        ArrayList<Player> players = new ArrayList<>(){
+            {
+                add(player1);
+                add(player2);
+                add(player3);
+            }
+        };
+        GameMaster gameMaster= new GameMaster(players,new Deck());
+        gameMaster.determineWinner();
+
+        Assertions.assertEquals(21,gameMaster.getWinner().getTotalValueOfCards());
+
+
+
+
+    }
+
 //    @Test
 //    void createDeckTest(){
 //        Card card = new Card();
