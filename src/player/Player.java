@@ -76,6 +76,10 @@ public class Player {
         return player;
     }
 
+    public void setTotalValueOfCards(int totalValueOfCards) {
+        this.totalValueOfCards = totalValueOfCards;
+    }
+
     public int getTotalValueOfCards() {
         return totalValueOfCards;
     }

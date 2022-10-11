@@ -58,11 +58,11 @@ public class GameMasterTest {
     public void playerWithHighCardValueTest(){
         ArrayList<Card>cards = new ArrayList<>();
         Player player1 = new Player(cards);
-        player1.setPlayerState(22);
+        player1.setTotalValueOfCards(22);
         Player player2 = new Player(cards);
-        player2.setPlayerState(23);
+        player2.setTotalValueOfCards(23);
         Player player3 = new Player(cards);
-        player3.setPlayerState(20);
+        player3.setTotalValueOfCards(20);
         ArrayList<Player> players = new ArrayList<>(){
             {
                 add(player1);
