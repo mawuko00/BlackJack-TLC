@@ -5,14 +5,36 @@ import card.Card;
 import java.util.ArrayList;
 
 public class Player {
-    private ArrayList<Card> cards = new ArrayList<>();
+    private ArrayList<Card> cards ;
     private String playerState;
     private int totalValueOfCards;
 
+    private int ID;
+
+
+    public Player(int id) {
+        this.ID = id;
+        this.playerState = "Hit";
+        this.cards = cards;
+    }
+
+
+
+    public Player(ArrayList<Card> cards){
+        this.cards = cards;
+    }
+
 
     public Player() {
-        this.playerState = "Hit";
     }
+
+
+
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
+
 
     public String getPlayerState() {
         return playerState;
@@ -27,18 +49,38 @@ public class Player {
         this.cards.add(card);
     }
 
-    public void calcTotalCardValue(Card card) {
+    public void calcCardValue(Card card) {
         this.totalValueOfCards += card.getValue().getValue();
     }
 
-    public void setPlayerState() {
-        if (this.totalValueOfCards < 17) {
+    public void setPlayerState(int totalValueOfCards) {
+        if (totalValueOfCards < 17) {
             this.setPlayerState("Hit");
-        } else if (this.totalValueOfCards >= 21) {
+        } else if (totalValueOfCards >= 21) {
             this.setPlayerState("Bust");
         } else {
-            this.setPlayerState("Stick");
+            setPlayerState("Stick");
         }
 
+    }
+
+    public Player notBustState(ArrayList<Player> players) {
+        Player player = new Player();
+        for (Player p : players) {
+            if (!p.getPlayerState().equals("Bust")) {
+                player = p;
+
+            }
+        }
+
+        return player;
+    }
+
+    public int getTotalValueOfCards() {
+        return totalValueOfCards;
+    }
+
+    public int getID() {
+        return ID;
     }
 }

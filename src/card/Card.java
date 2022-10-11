@@ -3,10 +3,18 @@ package card;
 import java.util.Stack;
 
 public class Card {
-    private String suit;
+    private SuitValue suit;
     private CardValue value;
 
-    public void setSuit(String suit) {
+    public Card() {
+    }
+
+    public Card(SuitValue suit, CardValue value) {
+        this.suit = suit;
+        this.value = value;
+    }
+
+    public void setSuit(SuitValue suit) {
         this.suit = suit;
     }
 
@@ -14,7 +22,7 @@ public class Card {
         this.value = value;
     }
 
-    public String getSuit() {
+    public SuitValue getSuit() {
         return suit;
     }
 
